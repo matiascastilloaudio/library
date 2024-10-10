@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+html,
+body {
+    text-align: center;
+    background-color: #cbd5e1;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 20px;
+}
+
+#bookContainer {
+    padding: 40px;
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+#book {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #cbd5e1;
+
+    >div {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #94a3b8;
+}
+
+button:hover {
+    background-color: #64748b;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.statusBtn {
+    width: 100px;
+    align-self: center;
+    background-color: transparent;
+}
+
+.statusBtn.not-read {
+    border: 2px solid #ef4444;
+}
+
+.statusBtn.read {
+    border: 2px solid #22c55e;
+
+}
+
+.statusBtn:active,
+.statusBtn:hover {
+    transform: scale(1);
+    background-color: transparent;
+}
+
+dialog {
+    align-self: center;
+    justify-self: center;
+    border: none;
+    border-radius: 10px;
+}
+
+form {
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    width: 200px;
+    background-color: #cbd5e1;
+}
+
+.btn-container {
+    display: flex;
+    gap: 10px;
+
+    button {
+        width: 100%;
+    }
+}
+
+input,
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    margin: 0;
+    background-color: #f8fafc
+}
+
+label {
+    margin-top: 10px;
+}
+
+::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
