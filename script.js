@@ -30,12 +30,56 @@ class Book {
             form.reset();
         });
 
-        addBookBtn.addEventListener('click', (event) => {
-            event.preventDefault();
-            const newBook = new Book(title.value, author.value, parseInt(pages.value), status.value);
-            formDialog.close(this.myLibrary.push(newBook));
-            form.reset();
-            this.displayBooks();
+        addBookBtn.addEventListener('click', () => {
+            switch (true) {
+                case title.validity.valueMissing:
+                    title.setCustomValidity('Title is required!');
+                    break;
+
+                case author.validity.valueMissing:
+                    author.setCustomValidity('Author is required!');
+                    break;
+
+                case pages.validity.valueMissing || isNaN(pages.value):
+                    pages.setCustomValidity('Please enter a valid number of pages.');
+                    break;
+
+                case (status.value == 'choose'):
+                    status.setCustomValidity('Status is required!');
+                    break;
+
+                default:
+                    const newBook = new Book(title.value, author.value, parseInt(pages.value), status.value);
+                    this.myLibrary.push(newBook);
+                    formDialog.close();
+                    form.reset();
+                    this.displayBooks();
+                    break;
+            }
+        });
+
+        title.addEventListener('input', () => {
+            if (!title.validity.valueMissing) {
+                title.setCustomValidity('');
+            }
+        });
+
+        author.addEventListener('input', () => {
+            if (!author.validity.valueMissing) {
+                author.setCustomValidity('');
+            }
+        });
+
+        pages.addEventListener('input', () => {
+            if (!isNaN(pages.value)) {
+                pages.setCustomValidity('');
+            }
+        });
+
+        status.addEventListener('input', () => {
+            if (status.value != 'read' || status.value != 'not-read') {
+                status.setCustomValidity('');
+            }
         });
     }
 
